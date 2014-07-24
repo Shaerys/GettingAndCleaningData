@@ -1,3 +1,5 @@
+library(reshape2)
+
 # load data if it isn't already populated
 if (!file.exists("./data")) source("download_data.R")
 
@@ -91,3 +93,16 @@ write.table(measurements, file="activity_measurements.txt", row.names=FALSE)
 
 # 5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
+# melt and recast around mean of variables
+measurements_melt <- melt(measurements, 
+                          id=names(measurements)[1:2], 
+                          measure.vars=names(measurements)[3:68])
+means <- dcast(measurements_melt, SubjectId + Activity ~ variable, mean)
+
+# update variable names to indicate average values
+names(means) <- gsub(pattern="(Mean|StdDev)(.*)", 
+                     replacement="Avg\\1\\2", 
+                     x=names(means))
+
+# save out the result of this second tidy dataset
+write.table(means, file="activity_averages.txt", row.names=FALSE)
