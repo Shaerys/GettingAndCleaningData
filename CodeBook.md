@@ -9,7 +9,7 @@ From the original experimental description entitled "Human Activity Recognition 
 
 The mean and standard deviation measurements were captured for the datasets constructed for this project.  Other measurements were discarded.
 
-### Dataset #1: activity_measurments.txt
+### Dataset #1: activity_measurements.txt
 
 This dataset consists of the following individual measurements (means and standard deviations) for each subject during specific activities. 
 
