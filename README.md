@@ -8,7 +8,7 @@ This repository houses the course project for Coursera's Getting and Cleaning Da
 This project contains two scripts.
 
 1. download_data.R - This script downloads the project data into a data directory, which is created if it does not already exist.  Run this script to refetch the data.  Data is accessible from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.  A description of the data is found at http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones.
-2. run_analysis.R - This script first downloads the data if no data directory exists, and then performs the analysis steps needed to create two tidy dataset files, as per the course requirements for Coursera's Getting and Cleaning Data class.
+2. run_analysis.R - This script first downloads the data via the previous script if no data directory exists, and then performs the analysis steps needed to create two tidy dataset files, as per the course requirements for Coursera's Getting and Cleaning Data class.
 
 To generate the tidy datasets from a new repository, simply run the run_analysis.R script via the R source command:
 
@@ -71,4 +71,4 @@ The last step of the analysis is to take each subject and activity and average t
 
 > read.table("activity_averages.txt", header=TRUE)
 
-The feature names for this dataset are the same as from the first measurements dataset, except that they are prefixed with the label "Average".
+The feature names for this dataset are the same as from the first measurements dataset, except that they are prefixed with the label "Avg", short for Average.
