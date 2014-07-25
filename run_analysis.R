@@ -1,4 +1,9 @@
-library(reshape2)
+# This script performs the analysis steps detailed in the Coursera
+# Getting and Cleaning Data class Course Project requirements.
+# It outputs two tidy dataset files, the first being mean and 
+# standard deviation measurements for subject and activity pairs,
+# and the second being averages of those measurements for each
+# subject and activity pair.
 
 # load data if it isn't already populated
 if (!file.exists("./data")) source("download_data.R")
@@ -92,6 +97,8 @@ measurements <- measurements[with(measurements, order(SubjectId, Activity)) , ]
 write.table(measurements, file="activity_measurements.txt", row.names=FALSE)
 
 # 5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
+
+library(reshape2)
 
 # melt and recast around mean of variables
 measurements_melt <- melt(measurements, 

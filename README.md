@@ -10,6 +10,14 @@ This project contains two scripts.
 1. download_data.R - This script downloads the project data into a data directory, which is created if it does not already exist.  Run this script to refetch the data.  Data is accessible from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.  A description of the data is found at http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones.
 2. run_analysis.R - This script first downloads the data if no data directory exists, and then performs the analysis steps needed to create two tidy dataset files, as per the course requirements for Coursera's Getting and Cleaning Data class.
 
+To generate the tidy datasets from a new repository, simply run the run_analysis.R script via the R source command:
+
+> source("run_analysis.R")
+
+The project also contains this ReadMe file, and a CodeBook describing the data in the generated tidy dataset files.
+
+This project was developed on a Windows 7 64-bit machine.  Relevant libraries are assumed to be pre-loaded.  The script may or may not need modification for other operating systems.
+
 # Analysis Process
 
 The run_analysis script performs the following steps as per the course project requirements:
@@ -53,7 +61,7 @@ I chose not to use full names for things like acceleration or angular velocity s
 
 ## The First Tidy Dataset (Measurements)
 
-The results of the previous analysis are written out with a header to a file called activity_measurements.txt.  This file can be read in via R's read.table via:
+The results of the previous analysis are sorted by subject id and activity, and then written out with a header to a file called activity_measurements.txt.  This file can be read in via R's read.table via:
 
 > read.table("activity_measurements.txt", header=TRUE)
 
